@@ -94,9 +94,8 @@ def bt10():
 	ai(10)
 def bt11():
 	ai(11)
-global p, e
+global p
 p = 0
-e = 0
 f = [42,84,126,168,210,250]
 def ai(n):
 	global p, f, e
