@@ -19,17 +19,18 @@ def window():
     	lb = QLabel(w)
     	lbl.append(lb)
     lbl[0].setText('Points : 6/0')
+    lbl[0].setText('Pontos : 6/0')
     lbl[0].setGeometry(10,0,800,150)
     lbl[0].setFont(QFont("Time", 20, QFont.Bold))
     lbl[0].setStyleSheet("color: rgb(50,75,250);")
     lbl[1].setStyleSheet("background-color: rgb(50,76,250); color: rgb(25,25,65);")
     lbl[1].setGeometry(10,150,800,150)
     lbl[2].setStyleSheet("background-color: rgb(50,75,250);")
-    lbl[2].setText('My Game')
-    lbl[2].setFont(QFont("Times", 40, QFont.Bold))
+    lbl[2].setText('Memorize!')
+    lbl[2].setFont(QFont("Times", 35, QFont.Bold))
     lbl[2].setGeometry(280,150,800,150)
     bs = QPushButton(w)
-    bs.setText('Start')
+    bs.setText('Começar')
     bs.setStyleSheet("background-color: rgb(25,25,65); color: rgb(255,255,255);")
     bs.setFont(QFont("Times", 25, QFont.Bold))
     bs.setGeometry(340,1600,400,150)
@@ -69,7 +70,7 @@ def start():
 		i.setEnabled(True)
 		i.setStyleSheet("background-color: rgb(25,25,65); color: rgb(0,0,0);")
 		bc = [-1]
-		lbl[2].setText("My Game")
+		lbl[2].setText("Memorize!")
 def bt0():
 	ai(0)
 def bt1():
@@ -105,7 +106,7 @@ def ai(n):
 		if bc[-1] == n:
 			bc.pop()
 	except IndexError:
-		b[0].setText("hello")
+		b[0].setText("Olá")
 	if v[n] == v[bc[-1]]:
 		b[n].setText(v[n])
 		b[bc[-1]].setText(v[bc[-1]])
@@ -124,7 +125,7 @@ def ai(n):
 		QTimer.singleShot(1000, lambda:b[n].setText(''))
 	bc.append(n)
 	if p == 6:
-		lbl[2].setText("Good Job !")
+		lbl[2].setText("Você ganhou!")
 		bc.clear()
 		bc.append(-1)
 		p = 0
