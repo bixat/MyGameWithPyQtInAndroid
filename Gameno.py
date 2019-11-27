@@ -3,6 +3,9 @@
 #محمد شهبون
 #fb.com/chahboun2
 #https://www.youtube.com/channel/UCCiBkOPPs1iTCOyEeL7zWQg?view_as=subscriber
+# Adaptado para PT-BR por Junior Obom
+# https://www.youtube.com/Paradoxo10
+
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -12,26 +15,24 @@ import random
 def window():
     app = QApplication(sys.argv)
     w = QWidget()
-    w.setStyleSheet("background-color: rgb(25,25,65)")
+    w.setStyleSheet("background-color: rgb(7, 24, 32)")
     global b, lb, lbl
     lbl = []
     for i in range(4):
     	lb = QLabel(w)
     	lbl.append(lb)
-    lbl[0].setText('Points : 6/0')
     lbl[0].setText('Pontos : 6/0')
     lbl[0].setGeometry(10,0,800,150)
     lbl[0].setFont(QFont("Time", 20, QFont.Bold))
-    lbl[0].setStyleSheet("color: rgb(50,75,250);")
-    lbl[1].setStyleSheet("background-color: rgb(50,76,250); color: rgb(25,25,65);")
-    lbl[1].setGeometry(10,150,800,150)
-    lbl[2].setStyleSheet("background-color: rgb(50,75,250);")
+    lbl[0].setStyleSheet("color: rgb(0, 176, 155);")
+    lbl[2].setStyleSheet("background-color: rgb(255, 0, 0); color: rgb(255,255,255); ")
+    lbl[2].setAlignment(Qt.AlignCenter)
     lbl[2].setText('Memorize!')
     lbl[2].setFont(QFont("Times", 35, QFont.Bold))
-    lbl[2].setGeometry(280,150,800,150)
+    lbl[2].setGeometry(0,150,1080,150)
     bs = QPushButton(w)
     bs.setText('Começar')
-    bs.setStyleSheet("background-color: rgb(25,25,65); color: rgb(255,255,255);")
+    bs.setStyleSheet("background-color: rgb(7, 24, 32); color: rgb(255,255,255);")
     bs.setFont(QFont("Times", 25, QFont.Bold))
     bs.setGeometry(340,1600,400,150)
     m =0
@@ -53,7 +54,7 @@ def window():
     	b[i].clicked.connect(eval(fun))
     global v,a
     v = []
-    a = ['●', '♡','♤','■','□','♧']
+    a = ['■','⬤','▲','◆','❖','⛊']
     for i in b:
     	c = random.choice(a)
     	i.setText(c)
@@ -68,9 +69,10 @@ def start():
 	for i in b:
 		i.setText('')
 		i.setEnabled(True)
-		i.setStyleSheet("background-color: rgb(25,25,65); color: rgb(0,0,0);")
+		i.setStyleSheet("background-color: rgb(7, 24, 32); color: rgb(0,0,0);")
 		bc = [-1]
 		lbl[2].setText("Memorize!")
+		lbl[2].setStyleSheet("background-color: rgb(255, 0, 0); color: rgb(255,255,255); ")
 def bt0():
 	ai(0)
 def bt1():
@@ -113,8 +115,8 @@ def ai(n):
 		p += 1
 		lbl[0].setText('Points : 6/{}'.format(p))
 		c = random.choice(f)
-		b[n].setStyleSheet("background-color: rgb({0},126,25); color: rgb(0,{0},{1});".format(c, c/2))
-		b[bc[-1]].setStyleSheet("background-color: rgb({0},126,25); color: rgb(0,{0},{1});".format(c, c/2))
+		b[n].setStyleSheet("background-color: rgb(6, 94, 84); color: rgb(255,255,255);".format(c, c/2))
+		b[bc[-1]].setStyleSheet("background-color: rgb(26, 94, 84); color: rgb(255,255,255);".format(c, c/2))
 		f.remove(c)
 		b[n].setFont(QFont("Times", 40, QFont.Bold))
 		b[bc[-1]].setFont(QFont("Times", 40, QFont.Bold))
@@ -126,6 +128,7 @@ def ai(n):
 	bc.append(n)
 	if p == 6:
 		lbl[2].setText("Você ganhou!")
+		lbl[2].setStyleSheet("background-color: rgb(44, 55, 61); color: rgb(255, 255, 255);")
 		bc.clear()
 		bc.append(-1)
 		p = 0
